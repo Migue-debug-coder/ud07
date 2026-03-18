@@ -43,7 +43,9 @@ public class Dataset {
 		);
 	}
 
-	public static List<Pedido> getPedidos(List<Producto> p) {
+	public static List<Pedido> getPedidos() {
+		List<Producto> p = Dataset.getProductos();
+		
 		return Arrays.asList(new Pedido(1, "Juan", Arrays.asList(p.get(0), p.get(1)), "ENTREGADO"), // Laptop, Ratón
 				new Pedido(2, "Maria", Arrays.asList(p.get(4), p.get(6)), "PENDIENTE"), // Silla, Lámpara
 				new Pedido(3, "Pedro", Arrays.asList(p.get(7), p.get(8)), "ENVIADO"), // Libros

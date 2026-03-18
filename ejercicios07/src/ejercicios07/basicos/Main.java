@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import ejercicios07.dataset.Dataset;
 import ejercicios07.dataset.Empleado;
+import ejercicios07.dataset.Producto;
 
 public class Main {
 
@@ -59,9 +60,29 @@ public class Main {
 				
 	}
 	
+	//Obtener solo los 3 productos más caros de la lista.
+	public static List<Producto> ejercicio5(){
+		return Dataset.getProductos().stream()
+				.sorted((p1, p2) -> Double.compare(p2.getPrecio(), p1.getPrecio()) )
+				.limit(3)
+				.toList();
+	}
 	
 	
+	//Filtrar los productos que tienen stock mayor a 0 y un precio menor a 50.
+	public static List<Producto> ejercicio7(){
+		return Dataset.getProductos().stream()
+				.filter(p -> p.getStock() > 0)
+				.filter(p -> p.getPrecio() < 50)
+				.toList();
+	}
 	
+	//Obtener una lista con las edades de todos los empleados.
+	public static List<Integer> ejercicio8(){
+		return Dataset.getEmpleados().stream()
+				.map(e -> e.getEdad())
+				.toList();
+	}
 	
 	
 	
