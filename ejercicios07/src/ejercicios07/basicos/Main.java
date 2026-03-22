@@ -91,15 +91,59 @@ public class Main {
 				.toList();
 	}
 	
+	// Filtrar los empleados del departamento "Ventas" 
+	// y ordenarlos alfabéticamente por nombre.
+	public static List<Empleado> ejercicio9() {
+	    return Dataset.getEmpleados().stream()
+	            .filter(e -> e.getDepartamento().equals("Ventas"))
+	            .sorted((e1, e2) -> e1.getNombre().compareToIgnoreCase(e2.getNombre()))
+	            .toList();
+	}
 	
+	// Obtener los nombres de los productos que empiezan por la letra "A"
+	public static List<String> ejercicio10() {
+	    return Dataset.getProductos().stream()
+	            .map(p -> p.getNombre())
+	            .filter(nombre -> nombre.toUpperCase().startsWith("A"))
+	            .toList();
+	}
 	
+	// Obtener una lista con todos los productos de la categoría "Electrónica".
+	public static List<Producto> ejercicio11() {
+	    return Dataset.getProductos().stream()
+	            .filter(p -> p.getCategoria().equals("Electrónica"))
+	            .toList();
+	}
 	
+	// Obtener una lista que contenga únicamente los nombres de todos los empleados.
+	public static List<String> ejercicio12() {
+	    return Dataset.getEmpleados().stream()
+	            .map(e -> e.getNombre())
+	            .toList();
+	}
 	
+	// Obtener una lista con los nombres de los empleados que pertenecen al departamento de "Ventas".
+	public static List<String> ejercicio13() {
+	    return Dataset.getEmpleados().stream()
+	            .filter(e -> e.getDepartamento().equals("Ventas"))
+	            .map(e -> e.getNombre())
+	            .toList();
+	}
 	
+	// Obtener una lista con los diferentes estados de los pedidos (sin elementos duplicados).
+	public static List<String> ejercicio14() {
+	    return Dataset.getPedidos().stream()
+	            .map(p -> p.getEstado())
+	            .distinct()
+	            .toList();
+	}
 	
-	
-	
-	
+	// Contar cuántos empleados tienen estrictamente más de 30 años.
+	public static long ejercicio15() {
+	    return Dataset.getEmpleados().stream()
+	            .filter(e -> e.getEdad() > 30)
+	            .count();
+	}
 	
 
 }
